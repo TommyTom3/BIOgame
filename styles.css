@@ -1,6 +1,9 @@
 body {
-    margin: 10px;
+    margin: 0;
     background-color: slategray;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -53,7 +56,8 @@ body {
     border-radius: 6px;
     margin: 5px;
     padding: 20px;
-    min-height: 400px;
+    flex: 1;
+    min-height: 50vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -74,4 +78,19 @@ body {
 .content-section p {
     font-size: 16px;
     line-height: 1.5;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .game-space {
+        padding: 10px;
+    }
+
+    .content-section h2 {
+        font-size: 20px;
+    }
+
+    .content-section p {
+        font-size: 14px;
+    }
 }

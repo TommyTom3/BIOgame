@@ -10,25 +10,31 @@ body {
     padding: 1px; 
     margin: 5px;
     background-color: bisque;
-    border-radius: 3px;
+    border-radius: 10px;
+    justify-content: center;
     text-align: center;
-    border: 2px solid black;
-    color: #2e7d32;
+    border: 2px solid #114313;
+    color: #114313;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, bisque, #1b5e20);
+    font-weight: bold;
 }
 
 .nav {
 	list-style-type: none;
 	margin: 5px;
 	overflow: hidden;
-	background-color: #2e7d32;;
-	border-radius: 3px;
-	border: 2px solid black;
+	background-color: bisque;
+	border-radius: 10px;
+	border: 2px solid #114313;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	margin-bottom: 10px;
     display: flex;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, bisque, #1b5e20);
 }
 
 .nav li {
@@ -39,15 +45,24 @@ body {
 
 .nav li a {
 	display: block;
-	color: black;
+    color: #114313;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+    font-weight: bold;
 }
 
 .nav li a:hover {
 	background-color: burlywood;
 	border-radius: 10px;
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    background-color: burlywood;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .game-space {
@@ -71,14 +86,15 @@ body {
 }
 
 .content-section h2 {
-    color: #2e7d32;
-    font-size: 24px;
+    color: #114313;
+    font-size: 2rem;
 }
 
 .content-section p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.5;
 }
+
 
 /* Media query for smaller screens */
 @media (max-width: 600px) {

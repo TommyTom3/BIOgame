@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault(); // Prevents default link behavior
-
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+            
             // Get the target section ID from data-target
             const targetId = link.getAttribute('data-target');
 

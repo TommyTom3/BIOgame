@@ -21,24 +21,19 @@ body {
 }
 
 .nav {
-    margin: 5px;
-    background-color: bisque;
-    border-radius: 10px;
-    border: 2px solid #114313;
-    position: sticky;
+    position: sticky; 
     top: 0;
-    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to bottom, bisque, #1b5e20);
-    padding: 10px;
+    align-items: center;
+    background-color: transparent;
+    z-index: 150;
 }
 
 .nav-button {
-    background-color: bisque; /* Explicit background to avoid gradient interference */
+    background-color: bisque;
     border: none;
-    color: #114313; /* Ensure text is visible */
+    color: #114313;
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
@@ -51,7 +46,7 @@ body {
 }
 
 .nav-button:hover {
-    background-color: rgb(242, 213, 178); /* Lighter hover state */
+    background-color: rgb(242, 213, 178);
     transform: scale(1.02);
 }
 
@@ -64,15 +59,16 @@ body {
 .nav-item {
     position: relative;
     display: inline-block;
+    margin: 0 10px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: bisque;
+    background-color: slategray;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 2000;
     border-radius: 6px;
     border: 2px solid #114313;
     top: 100%;
@@ -106,21 +102,23 @@ body {
     min-height: 50vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
+    position: relative;
+    z-index: 50;
+    overflow: hidden;
 }
 
 .content-section {
-    display: none;
+    display: none !important;
 }
 
 .content-section.active {
-    display: contents;
-    justify-content: center;
-    align-items: center;
+    display: block !important;
 }
 
 .content-section h2 {
     color: #114313;
     font-size: 2rem;
+    margin-top: 0;
 }
 
 .content-section p {
@@ -148,20 +146,107 @@ body {
     text-decoration: underline;
 }
 
+.game-area {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #f0f0f0;
+    border: 1px solid #114313;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.target-square {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    top: 50px;
+    left: 50px;
+}
+
+.draggable-ball {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    border-radius: 50%;
+    cursor: grab;
+    top: 300px;
+    left: 300px;
+    user-select: none;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: bisque;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #114313;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+}
+
+.popup-content p {
+    margin: 0 0 15px 0;
+    color: #114313;
+    font-weight: bold;
+}
+
+.popup-button {
+    background-color: #114313;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.popup-button:hover {
+    background-color: #1b5e20;
+}
+
+#photosynthesis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Media query for smaller screens */
 @media (max-width: 600px) {
     .nav {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        margin: 5px;
     }
 
     .nav-button {
-        margin: 5px 0;
+        padding: 10px 12px; /* Fixed syntax error: removed comma */
+        font-size: 14px;
     }
 
     .dropdown-content {
-        position: static;
-        width: 100%;
+        position: absolute;
+        width: 160px;
+        z-index: 2000;
     }
 
     .game-space {

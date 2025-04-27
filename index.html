@@ -1,54 +1,57 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<link href="styles.css" rel="stylesheet" type="text/css">
-	<title>BIOgame</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <title>BIOgame</title>
 </head>
 
 <body>
-	<header class="header">
-		<h1>BIOgame</h1>
-	</header>
+    <header class="header">
+        <h1>BIOgame</h1>
+    </header>
 
-	<div class="nav">
+    <div class="nav">
         <div class="nav-item">
             <button class="nav-button nav-link" data-target="games">Games</button>
             <div class="dropdown-content">
-                <a href="#" class="dropdown-item" data-target="game1">game1</a>
-		        <a href="#" class="dropdown-item" data-target="game2">game2</a>
-		        <a href="#" class="dropdown-item" data-target="game3">game3</a>
+                <a href="#" class="dropdown-item" data-target="photosynthesis">Photosynthesis</a>
+                <a href="#" class="dropdown-item" data-target="dnarep">DNA Replication</a>
+                <a href="#" class="dropdown-item" data-target="cellcycle">Cell Cycle</a>
             </div>
         </div>
-		<button class="nav-button nav-link" data-target="resources">Resources</button>
+        <div class="nav-item">
+            <button class="nav-button nav-link" data-target="resources">Resources</button>
+        </div>
     </div>
 
     <div class="game-space">
         <div id="about" class="content-section">
             <h2>Welcome to BIOgame</h2>
-            <p>BIOgame is currently being created. We aim to provide an interactive study tool for
-                High School Biology students. The "Games" tab will eventually provide a list of topics.
-                Clicking one of these topics will load a game space where you are reading this text. 
-                The "Resources" tab will also load in this space. Here you will be able to find links to 
-                free online resources. We want to make studying fun, interactive, and collaborative. 
-            </p>
+            <p>Have fun and always ask questions.</p>
         </div>
-        <div id="games" class="content-section">
-            <h2>Games</h2>
-            <p>Please select a game from the Games dropdown menu.</p>
+        
+        <div id="photosynthesis" class="content-section">
+            <h2>Photosynthesis</h2>
+            <div class="game-area">
+                <div id="photosynthesis-red-square" class="target-square"></div>
+                <div id="photosynthesis-blue-ball" class="draggable-ball"></div>
+                <div id="photosynthesis-popup" class="popup">
+                    <div class="popup-content">
+                        <p>Congrats! Good job with your blue ball</p>
+                        <button id="photosynthesis-continue-btn" class="popup-button">Continue</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="game1" class="content-section">
-            <h2>Game 1: Cell Structure</h2>
-            <p>Placeholder for Cell Structure game.</p>
+        <div id="cellcycle" class="content-section">
+            <h2>The Cell Cycle</h2>
+            <p>How does a cell know when to divide? Once it has the green light...<br>how does it become two daughter cells?</p>
         </div>
-        <div id="game2" class="content-section">
-            <h2>Game 2: Genetics</h2>
-            <p>Placeholder for Genetics game.</p>
-        </div>
-        <div id="game3" class="content-section">
-            <h2>Game 3: Ecosystems</h2>
-            <p>Placeholder for Ecosystems game.</p>
+        <div id="dnarep" class="content-section">
+            <h2>DNA Replication</h2>
+            <p>How do eukaryotic cells copy their genetic information?</p>
         </div>
         <div id="resources" class="content-section">
             <h2>Resources</h2>

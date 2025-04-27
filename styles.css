@@ -76,7 +76,8 @@ body {
 }
 
 .dropdown-content.show {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .dropdown-item {
@@ -85,6 +86,7 @@ body {
     text-decoration: none;
     display: block;
     font-weight: bold;
+    flex: 1, 1, auto;
 }
 
 .dropdown-item:hover {

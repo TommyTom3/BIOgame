@@ -86,22 +86,40 @@ document.addEventListener('DOMContentLoaded', () => {
         let initialX;
         let initialY;
 
-        // Start dragging
-        blueBall.addEventListener('mousedown', (e) => {
-            initialX = e.clientX - currentX;
-            initialY = e.clientY - currentY;
+        // Start dragging (mouse)
+        blueBall.addEventListener('mousedown', startDragging);
+
+        // Start dragging (touch)
+        blueBall.addEventListener('touchstart', startDragging, { passive: false});
+
+        function startDragging(e) {
+            e.preventDefault();
+            const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+            initialX = clientX - currentX;
+            initialY = clientY - currentY;
             isDragging = true;
             blueBall.style.cursor = 'grabbing';
             console.log('Dragging started');
-        });
+         }
+          
 
-        // Drag movement
-        document.addEventListener('mousemove', (e) => {
+        // Drag movement (moust)
+        document.addEventListener('mousemove', dragMove);
+        // Drag movement (touch)
+        document.addEventListener('touchmove', dragMove, { passive: false});
+         
+        function dragMove(e) {
             if (isDragging) {
                 e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
+                const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+                const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
 
+                currentX = clientX - initialX;
+                currentY = clientY - initialY;
+            
+        
                 // Constrain ball within game-area boundaries
                 const gameArea = document.querySelector('.game-area');
                 const rect = gameArea.getBoundingClientRect();
@@ -113,14 +131,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 blueBall.style.left = `${currentX}px`;
                 blueBall.style.top = `${currentY}px`;
             }
-        });
+        }
 
-        // Stop dragging and check for target
-        document.addEventListener('mouseup', () => {
+        // Stop dragging (mouse)
+        document.addEventListener('mouseup', stopDragging);
+
+        // Stop dragging (touch)
+        document.addEventListener('touchend', stopDragging);
+
+
+        function stopDragging() {
             if (isDragging) {
                 isDragging = false;
                 blueBall.style.cursor = 'grab';
                 console.log('Dragging stopped, checking collision');
+            
+        
+        
 
                 // Check if ball is over red square
                 const ballRect = blueBall.getBoundingClientRect();
@@ -136,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('Ball dropped on red square, pop-up shown');
                 }
             }
-        });
+        }
 
         // Continue button closes pop-up
         continueBtn.addEventListener('click', () => {
